@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Memecoin Academy — Learn Memecoins & Axiom Trade from Zero</title>
+<meta name="description" content="A free, plain-English course on memecoins, Solana, pump.fun bonding curves, and how to use the Axiom Trade terminal — with interactive simulators, a rug-check, and a glossary." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ░░ Top progress / scanline ░░ -->
+<div id="scrollbar-progress" aria-hidden="true"></div>
+
+<!-- ░░ Mobile top bar ░░ -->
+<header class="mobile-bar">
+  <span class="brand"><span class="brand-mark">▲</span> Memecoin<span class="accent">Academy</span></span>
+  <div class="mobile-actions">
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme"><span class="ic-sun">☀</span><span class="ic-moon">☾</span></button>
+    <button id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- ░░ Sidebar nav ░░ -->
+  <nav class="sidebar" id="sidebar" aria-label="Course chapters">
+    <div class="sidebar-head">
+      <div class="sidebar-head-row">
+        <span class="brand"><span class="brand-mark">▲</span> Memecoin<span class="accent">Academy</span></span>
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme"><span class="ic-sun">☀</span><span class="ic-moon">☾</span></button>
+      </div>
+      <p class="tagline">From zero to terminal. Plain English.</p>
+    </div>
+    <div class="nav-search">
+      <input id="nav-filter" type="text" placeholder="Jump to a topic…" aria-label="Filter chapters" autocomplete="off" />
+    </div>
+    <ol class="nav-list" id="nav-list">
+      <li><a href="#start" data-num="00">Read This First</a></li>
+      <li><a href="#what" data-num="01">What Is a Memecoin?</a></li>
+      <li><a href="#foundations" data-num="02">Foundations: Solana, Wallets &amp; DEXs</a></li>
+      <li><a href="#birth" data-num="03">How a Memecoin Is Born</a></li>
+      <li><a href="#lifecycle" data-num="04">The Lifecycle of a Coin</a></li>
+      <li><a href="#axiom" data-num="05">Axiom Trade Explained</a></li>
+      <li><a href="#pulse" data-num="06">Reading the Pulse Feed</a></li>
+      <li><a href="#token" data-num="07">Reading a Token (Rug-Check)</a></li>
+      <li><a href="#trade" data-num="08">Placing a Trade</a></li>
+      <li><a href="#firsttrade" data-num="09">Your First Trade — Walkthrough</a></li>
+      <li><a href="#risk" data-num="10">Risk &amp; Position Sizing</a></li>
+      <li><a href="#advanced" data-num="11">Advanced: MEV, Bundles &amp; Perps</a></li>
+      <li><a href="#traders" data-num="12">Trader Playbooks (Cented &amp; co.)</a></li>
+      <li><a href="#scams" data-num="13">Scams &amp; How Not to Get Rekt</a></li>
+      <li><a href="#glossary" data-num="14">Glossary</a></li>
+      <li><a href="#quiz" data-num="15">Test Yourself</a></li>
+    </ol>
+    <div class="sidebar-foot">
+      <span class="dot live"></span> Educational only · Not financial advice
+    </div>
+  </nav>
+
+  <!-- backdrop for mobile -->
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main class="content">
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="kicker">THE NO-BS FIELD GUIDE</p>
+      <h1>Understand <span class="grad">memecoins</span> &amp; the <span class="grad-2">Axiom&nbsp;Trade</span> terminal — from absolute zero.</h1>
+      <p class="lede">Everything from "what even is a coin" to bonding curves, sniping, slippage, MEV, and how to read a trading terminal without losing your shirt. Interactive simulators included. No prior knowledge assumed.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#start">Start the course →</a>
+        <a class="btn btn-ghost" href="#axiom">Jump to Axiom</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-count="12400000">0</span><span class="stat-label">coins ever launched on pump.fun</span></div>
+        <div class="stat"><span class="stat-num" data-count="144000">0</span><span class="stat-label">that "graduated" (~1.2%)</span></div>
+        <div class="stat"><span class="stat-num" data-count="69000" data-prefix="$">0</span><span class="stat-label">market cap to graduate</span></div>
+        <div class="stat"><span class="stat-num" data-count="400" data-suffix="ms">0</span><span class="stat-label">target trade execution</span></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 00 READ FIRST ═══════════════ -->
+    <section id="start" class="chapter">
+      <div class="chapter-tag">00 · Reality Check</div>
+      <h2>Read this first — the honest version</h2>
+      <div class="warn-box">
+        <strong>Memecoin trading is closer to a casino than to investing.</strong>
+        Of the ~12.4 million tokens ever launched on pump.fun, only about <strong>1.2%</strong> ever reached the modest milestone of "graduating." The overwhelming majority of traders <strong>lose money</strong>. This site teaches you how the machine works so you can make <em>informed</em> decisions — not so you can get rich. Never risk money you can't afford to lose entirely.
+      </div>
+      <div class="cards-3">
+        <div class="card">
+          <div class="card-icon">i</div>
+          <h3>This is education, not advice</h3>
+          <p>Nothing here is financial advice. It's a map of how the technology and the market actually behave. What you do with it is on you.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">i</div>
+          <h3>The house has an edge</h3>
+          <p>Bots, snipers, and insiders are faster and better-informed than you. Assume you're the slowest person at the table and plan accordingly.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">i</div>
+          <h3>Survival &gt; moonshots</h3>
+          <p>The traders who last aren't the ones who hit one 100×. They're the ones who size small, take profits, and don't blow up.</p>
+        </div>
+      </div>
+      <p class="how-to-read">How to use this guide: read top-to-bottom the first time — each chapter assumes the one before it. Play with the <span class="hl">interactive tools</span> (the glowing panels). Bookmark the <a href="#glossary">Glossary</a> for any word you don't know.</p>
+    </section>
+
+    <!-- ═══════════════ 01 WHAT IS A MEMECOIN ═══════════════ -->
+    <section id="what" class="chapter">
+      <div class="chapter-tag">01 · The Basics</div>
+      <h2>What is a memecoin?</h2>
+      <p class="big-p">A <term data-term="memecoin">memecoin</term> is a cryptocurrency with <strong>no product, no company, and no promised utility</strong> — its entire value comes from attention, community, and speculation. Think of it as a tradable internet joke or movement. Dogecoin started it; today thousands launch <em>per day</em>.</p>
+
+      <div class="split">
+        <div>
+          <h3>How is it different from "real" crypto?</h3>
+          <ul class="check-list">
+            <li><strong>Bitcoin / Ethereum:</strong> trying to be money or a computing platform. Years of development, huge networks.</li>
+            <li><strong>Utility tokens:</strong> power a specific app (e.g., a DEX or game).</li>
+            <li><strong>Memecoins:</strong> the value <em>is</em> the meme. Price is pure supply &amp; demand driven by hype. No roadmap required.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why do people trade them?</h3>
+          <ul class="check-list">
+            <li>Tiny starting <term data-term="market-cap">market caps</term> mean a coin can 10× or 100× fast (and -99% just as fast).</li>
+            <li>Launches are permissionless — anyone can make one in 30 seconds for a couple dollars.</li>
+            <li>It's 24/7, global, and the barrier to entry is basically a wallet.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Mental model</span>
+        A memecoin's price is just <em>how much the last person was willing to pay</em>. There's no underlying cash flow to "value." You're betting on whether more attention shows up <strong>after</strong> you buy — and getting out before it leaves.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 02 FOUNDATIONS ═══════════════ -->
+    <section id="foundations" class="chapter">
+      <div class="chapter-tag">02 · Foundations</div>
+      <h2>The plumbing: Solana, wallets, DEXs &amp; liquidity</h2>
+      <p class="big-p">Almost all memecoin action lives on <term data-term="solana">Solana</term> because it's fast and dirt-cheap (fractions of a cent per transaction). Before you can trade, four concepts have to click.</p>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <span class="concept-n">A</span>
+          <h3>Blockchain &amp; Solana</h3>
+          <p>A shared public ledger. Every trade is a <em>transaction</em> recorded in a <em>block</em>. Solana produces blocks ~every 400ms, which is why memecoin trading feels near-instant.</p>
+        </div>
+        <div class="concept">
+          <span class="concept-n">B</span>
+          <h3>Wallets &amp; keys</h3>
+          <p>A wallet (Phantom, Solflare, or Axiom's built-in one) holds your <term data-term="sol">SOL</term> and tokens. Your <term data-term="seed-phrase">seed phrase</term> = the master password. Anyone with it owns your funds. Never share it. Ever.</p>
+        </div>
+        <div class="concept">
+          <span class="concept-n">C</span>
+          <h3>DEX &amp; liquidity pools</h3>
+          <p>A <term data-term="dex">DEX</term> (decentralized exchange) like Raydium lets you swap tokens with no middleman. You trade against a <term data-term="liquidity">liquidity pool</term> — a shared pot of two tokens (e.g., SOL + MEME).</p>
+        </div>
+        <div class="concept">
+          <span class="concept-n">D</span>
+          <h3>Why liquidity matters</h3>
+          <p>More liquidity = more stable price &amp; easier exits. Thin liquidity means your own buy/sell swings the price hard (high <term data-term="slippage">slippage</term>) — and you may not be able to sell at all.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">The AMM in one sentence</span>
+        Most DEXs use an <term data-term="amm">Automated Market Maker</term>: price is set by a formula on the ratio of the two tokens in the pool. Buy MEME with SOL → pool gets more SOL, less MEME → MEME's price goes up. That same math drives the bonding curve you'll meet next.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 03 BIRTH / BONDING CURVE ═══════════════ -->
+    <section id="birth" class="chapter">
+      <div class="chapter-tag">03 · Birth of a Coin</div>
+      <h2>How a memecoin is born: pump.fun &amp; the bonding curve</h2>
+      <p class="big-p"><term data-term="pumpfun">Pump.fun</term> is the launchpad where most memecoins are created. It removes every barrier: pay a tiny fee, name your coin, and it's live and tradable in seconds. The magic — and the trap — is the <term data-term="bonding-curve">bonding curve</term>.</p>
+
+      <div class="split">
+        <div>
+          <h3>What's a bonding curve?</h3>
+          <p>A hard-coded formula that sets the price automatically. There's <strong>no order book</strong> and no seller you negotiate with. The rule is simple:</p>
+          <ul class="check-list">
+            <li><strong>Every buy pushes the price up</strong> the curve.</li>
+            <li><strong>Every sell pushes it down.</strong></li>
+            <li>Early buyers pay the least; late buyers pay more.</li>
+          </ul>
+          <p>When enough has been bought to reach roughly a <strong>$69,000 market cap</strong>, the coin <term data-term="graduation">"graduates"</term>: ~$12k of liquidity is deposited into a real DEX (PumpSwap or Raydium) and it trades freely from there.</p>
+        </div>
+        <div>
+          <h3>Why "graduation" is a big deal</h3>
+          <p>Before graduation, you're trapped inside the curve. After, the coin has a real liquidity pool and can theoretically run much higher — or get dumped. Graduation is the single most-watched milestone in memecoin trading.</p>
+          <p class="micro">Reality: only ~1.2% of launches ever graduate. The other 98.8% fade to zero, often within minutes.</p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE: Bonding curve simulator -->
+      <div class="lab" id="curve-lab">
+        <div class="lab-head">
+          <span class="lab-badge">INTERACTIVE</span>
+          <h3>Bonding-curve simulator</h3>
+          <p>Drag to see how each buy moves the price and market cap toward the $69k graduation line.</p>
+        </div>
+        <div class="lab-body curve-lab-body">
+          <div class="curve-chart-wrap">
+            <canvas id="curve-canvas" width="640" height="320" role="img" aria-label="Bonding curve chart showing price rising as supply is bought"></canvas>
+          </div>
+          <div class="curve-controls">
+            <label for="curve-slider">Bought toward graduation: <output id="curve-pct">15%</output></label>
+            <input id="curve-slider" type="range" min="1" max="100" value="15" />
+            <div class="curve-readout">
+              <div class="ro"><span>Token price</span><b id="ro-price">$0.0000000</b></div>
+              <div class="ro"><span>Market cap</span><b id="ro-mcap">$0</b></div>
+              <div class="ro"><span>To graduation</span><b id="ro-grad">$0</b></div>
+              <div class="ro"><span>If you bought at 5%, you'd be</span><b id="ro-pnl" class="pos">+0%</b></div>
+            </div>
+            <p class="lab-note">Notice the curve gets <em>steeper</em>: the later you buy, the more you pay and the less upside is left before graduation. This is why "aping" a coin that's already 90% of the way up is dangerous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 04 LIFECYCLE ═══════════════ -->
+    <section id="lifecycle" class="chapter">
+      <div class="chapter-tag">04 · The Lifecycle</div>
+      <h2>The life of a coin: from mint to migration (or zero)</h2>
+      <p class="big-p">Every coin moves through stages. Axiom's interface is literally built around three of them. Here's the full journey.</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <span class="tl-dot"></span>
+          <h3>1 · Mint / New</h3>
+          <p>Coin is created on pump.fun. Seconds old. Maximum risk &amp; maximum potential. Snipers buy here. 90%+ die within minutes.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tl-dot"></span>
+          <h3>2 · Bonding (Final Stretch)</h3>
+          <p>Buying continues up the curve. As it nears the $69k graduation line, it enters the "Final Stretch" — a key window traders watch.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tl-dot"></span>
+          <h3>3 · Graduation / Migrated</h3>
+          <p>Hits ~$69k mcap → liquidity migrates to a real DEX. Now a "mature" coin with a real pool. Often a volatility spike here.</p>
+        </div>
+        <div class="tl-step">
+          <span class="tl-dot"></span>
+          <h3>4 · Discovery or Death</h3>
+          <p>Either a community forms and it trends (rare), or volume dries up and it bleeds to zero (common). Most coins end here.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Map this to the terminal</span>
+        Axiom's <strong>Pulse</strong> feed has three columns that mirror stages 1–3: <span class="hl">New Pairs</span> → <span class="hl">Final Stretch</span> → <span class="hl">Migrated</span>. Once you understand the lifecycle, the interface stops looking like noise. That's chapter 06.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 05 AXIOM ═══════════════ -->
+    <section id="axiom" class="chapter">
+      <div class="chapter-tag">05 · The Terminal</div>
+      <h2>Axiom Trade, explained</h2>
+      <p class="big-p"><strong>Axiom</strong> is a browser-based Solana trading terminal built for speed. Instead of clicking around pump.fun, Raydium, and a wallet separately, it bundles <em>discovery, execution, and tracking</em> into one screen — and routes your trades directly to validators so they land fast with <term data-term="mev">MEV</term> protection. It became one of the highest-revenue apps on Solana (&gt;$300M in protocol revenue in its first ~263 days).</p>
+
+      <div class="cards-3">
+        <div class="card glow-card">
+          <div class="card-icon">»</div>
+          <h3>Discovery</h3>
+          <p>The <strong>Pulse</strong> feed streams every new launch and migration in real time, with filters for holders, liquidity, volume, and market cap. Plus wallet tracking &amp; X/Twitter monitoring.</p>
+        </div>
+        <div class="card glow-card">
+          <div class="card-icon">»</div>
+          <h3>Execution</h3>
+          <p>One-click "Quick Buy", limit &amp; ladder orders, migration snipers, and configurable slippage / priority fee / <term data-term="bribe">bribe</term> / MEV settings. Trades target &lt;400ms via colocated nodes &amp; <term data-term="jito">Jito bundles</term>.</p>
+        </div>
+        <div class="card glow-card">
+          <div class="card-icon">»</div>
+          <h3>Extras</h3>
+          <p>Copy trading, whale wallet tracking, yield/staking on idle SOL, and Hyperliquid <term data-term="perps">perps</term> for leverage — all in the same interface. Plus a points program toward a potential airdrop.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">How it works under the hood</h3>
+      <div class="split">
+        <div>
+          <ul class="check-list">
+            <li><strong>Non-custodial:</strong> it generates a Solana wallet inside your browser (or you import one). Keys are encrypted in local storage — <em>you</em> hold them, not Axiom.</li>
+            <li><strong>Aggregator:</strong> it reads pump.fun, Raydium, PumpSwap and others so you see everything in one feed.</li>
+            <li><strong>Fast lane:</strong> colocated RPC nodes + Jito bundles aim to land your trade in the very next block.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Fees (ballpark)</h3>
+          <p>Axiom typically charges around <strong>0.9%</strong> per trade, reducible to roughly <strong>0.7%</strong> via referral / cashback tiers. On top of that you pay Solana network fees and any priority fee / bribe you set for faster inclusion.</p>
+          <p class="micro">Fees change — always confirm the current number in-app before trading.</p>
+        </div>
+      </div>
+
+      <div class="warn-box small">
+        <strong>Safety first:</strong> only ever use the official <code>axiom.trade</code> URL (phishing clones are everywhere), start with a <term data-term="burner">burner wallet</term>, make a tiny test deposit and test trade first, and save your seed phrase offline. More in <a href="#scams">chapter 11</a>.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 06 PULSE ═══════════════ -->
+    <section id="pulse" class="chapter">
+      <div class="chapter-tag">06 · Reading Pulse</div>
+      <h2>Reading the Pulse feed</h2>
+      <p class="big-p"><strong>Pulse</strong> is Axiom's three-column live feed of the memecoin firehose. Each column is a stage of the lifecycle from chapter 04. Here's an annotated mock-up — hover the cards.</p>
+
+      <!-- INTERACTIVE: Mock Pulse UI -->
+      <div class="pulse-mock" id="pulse-mock">
+        <div class="pulse-col">
+          <div class="pulse-col-head">
+            <span class="pc-title">New Pairs</span>
+            <span class="pc-sub">just launched · seconds old</span>
+          </div>
+          <div class="pulse-card" data-tip="Coin name & ticker. The age (12s) tells you it's brand new — highest risk, highest potential.">
+            <div class="pcard-top"><span class="tkn">PEPE2.0</span><span class="age">12s</span></div>
+            <div class="pcard-bars"><span>MC <b>$8.4K</b></span><span>Vol <b>$2.1K</b></span><span>Holders <b>14</b></span></div>
+            <div class="pcard-flags"><span class="flag ok">LP burned</span><span class="flag warn">Dev 4%</span></div>
+          </div>
+          <div class="pulse-card" data-tip="High holder count this early can mean organic interest — or a bundled launch faking it. Always check holder distribution.">
+            <div class="pcard-top"><span class="tkn">WIFCAT</span><span class="age">31s</span></div>
+            <div class="pcard-bars"><span>MC <b>$14K</b></span><span>Vol <b>$9.8K</b></span><span>Holders <b>62</b></span></div>
+            <div class="pcard-flags"><span class="flag ok">Mint revoked</span><span class="flag bad">Bundled</span></div>
+          </div>
+        </div>
+        <div class="pulse-col">
+          <div class="pulse-col-head">
+            <span class="pc-title">Final Stretch</span>
+            <span class="pc-sub">nearing $69K graduation</span>
+          </div>
+          <div class="pulse-card hot" data-tip="This coin is 88% up the bonding curve. Traders watch this column for coins about to migrate — a common momentum trigger.">
+            <div class="pcard-top"><span class="tkn">GIGABRAIN</span><span class="age">4m</span></div>
+            <div class="pcard-bars"><span>MC <b>$61K</b></span><span>Vol <b>$140K</b></span><span>Holders <b>820</b></span></div>
+            <div class="curve-mini"><span style="width:88%"></span></div>
+            <div class="pcard-flags"><span class="flag ok">Clean holders</span><span class="flag ok">88% to grad</span></div>
+          </div>
+          <div class="pulse-card" data-tip="Stalled at 54% with falling volume — momentum is dying. Many coins never finish the stretch.">
+            <div class="pcard-top"><span class="tkn">MOONLAD</span><span class="age">22m</span></div>
+            <div class="pcard-bars"><span>MC <b>$38K</b></span><span>Vol <b>$11K</b></span><span>Holders <b>410</b></span></div>
+            <div class="curve-mini"><span style="width:54%"></span></div>
+            <div class="pcard-flags"><span class="flag warn">Vol fading</span></div>
+          </div>
+        </div>
+        <div class="pulse-col">
+          <div class="pulse-col-head">
+            <span class="pc-title">Migrated</span>
+            <span class="pc-sub">graduated to a real DEX</span>
+          </div>
+          <div class="pulse-card" data-tip="Migrated = it has a real liquidity pool now. 'Mature' by memecoin standards, but the post-migration dump is a classic trap.">
+            <div class="pcard-top"><span class="tkn">SOLDOGE</span><span class="age">1h</span></div>
+            <div class="pcard-bars"><span>MC <b>$240K</b></span><span>Vol <b>$1.2M</b></span><span>Holders <b>3.1K</b></span></div>
+            <div class="pcard-flags"><span class="flag ok">LP locked</span><span class="flag ok">Migrated</span></div>
+          </div>
+          <div class="pulse-card" data-tip="Big market cap but collapsing volume after migration — late buyers here are usually exit liquidity for early ones.">
+            <div class="pcard-top"><span class="tkn">CHADINU</span><span class="age">3h</span></div>
+            <div class="pcard-bars"><span>MC <b>$180K</b></span><span>Vol <b>$90K</b></span><span>Holders <b>2.4K</b></span></div>
+            <div class="pcard-flags"><span class="flag bad">Vol -70%</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="pulse-tip-readout" id="pulse-tip">Hover any card to learn what the numbers are telling you →</p>
+
+      <h3 class="sub">The four numbers that matter most</h3>
+      <div class="metric-grid">
+        <div class="metric"><b>Market Cap (MC)</b><span>Price × supply. Tiny = more room to run but riskier. Huge = momentum may be spent.</span></div>
+        <div class="metric"><b>Volume</b><span>How much is trading. <em>Rising</em> volume = attention arriving. Falling = leaving. Trend matters more than the number.</span></div>
+        <div class="metric"><b>Holders</b><span>Unique wallets. More holders generally = more organic. But beware faked counts from bundles.</span></div>
+        <div class="metric"><b>Liquidity</b><span>Size of the pool. Low liquidity = brutal slippage and possible inability to sell.</span></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 07 READING A TOKEN / RUG CHECK ═══════════════ -->
+    <section id="token" class="chapter">
+      <div class="chapter-tag">07 · Due Diligence</div>
+      <h2>Reading a token: the 60-second rug-check</h2>
+      <p class="big-p">Before you buy <em>anything</em>, run through these checks. None of them guarantee safety — they just tilt the odds. Tick each box and watch your "safety read" update.</p>
+
+      <!-- INTERACTIVE: Rug-check -->
+      <div class="lab" id="rug-lab">
+        <div class="lab-head">
+          <span class="lab-badge">INTERACTIVE</span>
+          <h3>Rug-check scorecard</h3>
+          <p>Check what's true for the coin you're looking at. This is a learning aid, not a guarantee.</p>
+        </div>
+        <div class="lab-body">
+          <div class="rug-grid" id="rug-grid">
+            <label class="rug-item"><input type="checkbox" data-w="2" /><span><b>Mint authority revoked</b><em>Dev can't print more supply to dump on you.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="2" /><span><b>Liquidity locked or burned</b><em>Dev can't yank the pool and run (the classic rug).</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="2" /><span><b>Top 10 holders &lt; ~25%</b><em>Concentrated supply = a few wallets can crash it.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="1" /><span><b>Dev holding is small (&lt;5%)</b><em>Less incentive to dump on the community.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="1" /><span><b>Not heavily bundled / sniped</b><em>Insiders buying their own launch fake demand.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="1" /><span><b>Volume is rising, not fading</b><em>Attention arriving beats attention leaving.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="1" /><span><b>Real socials / organic community</b><em>An active X or TG with real people, not bots.</em></span></label>
+            <label class="rug-item"><input type="checkbox" data-w="1" /><span><b>Liquidity is healthy for the mcap</b><em>So you can actually sell your position.</em></span></label>
+          </div>
+          <div class="rug-meter">
+            <div class="rug-meter-bar"><span id="rug-fill"></span></div>
+            <div class="rug-verdict" id="rug-verdict">Tick the boxes that are true →</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="card">
+          <h3>Holder distribution</h3>
+          <p>Open the holders tab. If the top few wallets own most of the supply, those wallets <em>are</em> your risk. One sell can end the coin.</p>
+        </div>
+        <div class="card">
+          <h3>Dev &amp; insiders</h3>
+          <p>Check how much the deployer wallet and early "insider" wallets hold. Big dev bags + revocable mint = a loaded gun pointed at you.</p>
+        </div>
+        <div class="card">
+          <h3>Bundles &amp; snipers</h3>
+          <p>A <term data-term="bundle">bundled</term> launch means insiders bought a chunk in the very first block. High sniper % means you're late and they're already in profit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 08 PLACING A TRADE ═══════════════ -->
+    <section id="trade" class="chapter">
+      <div class="chapter-tag">08 · Execution</div>
+      <h2>Placing a trade: slippage, fees &amp; order types</h2>
+      <p class="big-p">A memecoin trade is a swap (SOL → token, or token → SOL). The settings around it decide whether your trade lands, at what price, and how much you bleed to bots. Get these right <em>before</em> you click.</p>
+
+      <div class="settings-grid">
+        <div class="setting">
+          <h3><term data-term="slippage">Slippage</term></h3>
+          <p>The max price change you'll accept between clicking and executing. Too low → trade fails on a fast-moving coin. Too high → bots/sandwiches eat you. New volatile coins often need higher slippage; established ones can run tight.</p>
+        </div>
+        <div class="setting">
+          <h3><term data-term="priority-fee">Priority fee</term></h3>
+          <p>A tip to validators to process your transaction sooner. In a race to snipe a launch, a higher priority fee = you land earlier. Costs more, but a failed snipe costs the whole opportunity.</p>
+        </div>
+        <div class="setting">
+          <h3><term data-term="bribe">Bribe / Jito tip</term></h3>
+          <p>An extra payment to get your transaction included in a Jito bundle — the fastest lane on Solana. Used by snipers to win the first block. Overkill for casual trades.</p>
+        </div>
+        <div class="setting">
+          <h3>MEV protection</h3>
+          <p>Settings that route your trade to avoid being <term data-term="sandwich">sandwich-attacked</term> by bots. Worth enabling — bots front-run and back-run unprotected trades to skim from you.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Order types you'll see in Axiom</h3>
+      <div class="cards-3">
+        <div class="card"><h3>Quick Buy / Market</h3><p>Buy/sell instantly at the current price. Fastest, but you accept whatever price slippage gives you. The default for aping.</p></div>
+        <div class="card"><h3>Limit order</h3><p>Rests on-chain and only fires at a price you set. Great for "buy if it dips to X" or "sell if it hits Y" without watching the screen.</p></div>
+        <div class="card"><h3>Ladder / migration sniper</h3><p>Ladder = split entries/exits across prices (DCA). Migration sniper = auto-buy the instant a coin graduates to the DEX.</p></div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Always do this</span>
+        Place a <strong>tiny test trade</strong> on a new coin before sizing up. Confirm you can <em>sell</em> (some scam tokens let you buy but not sell — a "<term data-term="honeypot">honeypot</term>"). If you can't exit a small bag, you definitely can't exit a big one.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 09 FIRST TRADE WALKTHROUGH ═══════════════ -->
+    <section id="firsttrade" class="chapter">
+      <div class="chapter-tag">09 · Walkthrough</div>
+      <h2>Your first trade, step by step</h2>
+      <p class="big-p">A complete, careful first run-through. <strong>Don't skip steps.</strong> The goal here isn't profit — it's to do one full loop (deposit → buy → sell) safely with tiny money so the mechanics are muscle memory before real size is on the line.</p>
+
+      <!-- INTERACTIVE: Stepper -->
+      <div class="lab" id="step-lab">
+        <div class="lab-head">
+          <span class="lab-badge">INTERACTIVE</span>
+          <h3>The 9-step first-trade checklist</h3>
+          <p>Click through each step. Tick it off as you go — your progress shows below.</p>
+        </div>
+        <div class="lab-body">
+          <div class="stepper" id="stepper">
+            <div class="step-rail" id="step-rail"></div>
+            <div class="step-panel" id="step-panel"></div>
+            <div class="step-controls">
+              <button class="btn btn-ghost" id="step-prev">← Back</button>
+              <label class="step-check"><input type="checkbox" id="step-done" /> Mark this step done</label>
+              <button class="btn btn-primary" id="step-next">Next →</button>
+            </div>
+            <div class="step-progress"><span id="step-fill"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="warn-box small">
+        <strong>The one rule that saves beginners:</strong> your very first "real" buy should be an amount you would shrug off losing entirely — think the price of a coffee, not a paycheck. If losing it would sting, it's too big. You are paying tuition to learn the interface, not investing.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 10 RISK ═══════════════ -->
+    <section id="risk" class="chapter">
+      <div class="chapter-tag">10 · Staying Alive</div>
+      <h2>Risk management &amp; position sizing</h2>
+      <p class="big-p">This is the chapter that actually keeps you in the game. Strategy is overrated; <strong>not blowing up</strong> is everything. The math is simple and the discipline is hard.</p>
+
+      <!-- INTERACTIVE: Position sizer -->
+      <div class="lab" id="size-lab">
+        <div class="lab-head">
+          <span class="lab-badge">INTERACTIVE</span>
+          <h3>Position-size &amp; survival calculator</h3>
+          <p>See how much to risk per trade — and how a losing streak hits your bankroll.</p>
+        </div>
+        <div class="lab-body size-lab-body">
+          <div class="size-inputs">
+            <label>Bankroll (the total you can afford to lose)
+              <div class="input-money"><span>$</span><input id="bankroll" type="number" value="1000" min="0" step="50" /></div>
+            </label>
+            <label>Risk per trade: <output id="risk-out">2%</output>
+              <input id="risk-slider" type="range" min="1" max="20" value="2" />
+            </label>
+            <label>Hypothetical losing streak: <output id="streak-out">5</output> trades
+              <input id="streak-slider" type="range" min="1" max="15" value="5" />
+            </label>
+          </div>
+          <div class="size-results">
+            <div class="sr big"><span>Suggested position size</span><b id="pos-size">$20</b></div>
+            <div class="sr"><span>Bankroll after the streak</span><b id="after-streak">$904</b></div>
+            <div class="sr"><span>Drawdown</span><b id="drawdown" class="neg">-9.6%</b></div>
+            <p class="lab-note" id="size-note">Risking 2% per trade, even 5 losses in a row barely dents you. Now slide risk up to 20% and watch how fast a normal losing streak wipes you out — that's how most people blow up.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="card"><h3>Have an exit before you enter</h3><p>Decide your take-profit (e.g., sell half at 2×) and your stop (e.g., out at -50%) <em>before</em> buying. Emotion in the moment makes terrible decisions.</p></div>
+        <div class="card"><h3>Take profits on the way up</h3><p>"Get your initial back" — sell enough at 2× to recover your stake. Now you're playing with house money and can't lose. Most blow-ups come from greed, not bad picks.</p></div>
+        <div class="card"><h3>Expect to be wrong a lot</h3><p>In a world where 98% of coins die, most of your trades will lose. The model that works: many small losses + a few big wins &gt; total. Size so the losses don't matter.</p></div>
+      </div>
+
+      <div class="warn-box small">
+        <strong>The blow-up pattern:</strong> win a few, feel invincible, over-size, marry a bag, refuse to sell on the way down, "average down" into a dying coin, account → zero. Recognize it because you <em>will</em> feel it. The rules above exist specifically to stop it.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 11 ADVANCED ═══════════════ -->
+    <section id="advanced" class="chapter">
+      <div class="chapter-tag">11 · Advanced</div>
+      <h2>Advanced mechanics: MEV, bundles, snipers &amp; perps</h2>
+      <p class="big-p">You don't need these to start, but you'll hear the words constantly — and knowing them tells you who you're really trading against.</p>
+
+      <div class="adv-grid">
+        <div class="adv">
+          <h3><term data-term="mev">MEV</term> &amp; sandwich attacks</h3>
+          <p>Bots watch pending trades and insert their own around yours: buy right before you (pushing price up), let your buy push it higher, then sell into you. You overpay; they pocket the difference. MEV protection routes around this.</p>
+        </div>
+        <div class="adv">
+          <h3><term data-term="jito">Jito bundles</term></h3>
+          <p>A way to submit a group of transactions that land together, in order, in the same block — with a tip to the validator. Snipers use bundles to guarantee they're first. Axiom uses them for fast, protected execution.</p>
+        </div>
+        <div class="adv">
+          <h3>Snipers &amp; bots</h3>
+          <p>Automated programs that buy a coin in its first block(s), before humans can react. A <term data-term="sniper">sniper</term> bot is often already in profit by the time the launch hits your feed. Assume they exist on every coin.</p>
+        </div>
+        <div class="adv">
+          <h3>Copy trading &amp; wallet tracking</h3>
+          <p>Follow a profitable wallet and mirror its trades automatically, or just watch "smart money" wallets for ideas. Useful — but you're always a step behind the wallet you copy, and good wallets know they're watched.</p>
+        </div>
+        <div class="adv">
+          <h3><term data-term="perps">Perps</term> (Hyperliquid)</h3>
+          <p>Perpetual futures let you trade with <term data-term="leverage">leverage</term> (borrowed size) and bet on price going down (short). Axiom integrates Hyperliquid for this. Leverage multiplies gains <em>and</em> losses — and can <term data-term="liquidation">liquidate</term> (wipe) your position. Advanced users only.</p>
+        </div>
+        <div class="adv">
+          <h3>Yield on idle SOL</h3>
+          <p>Axiom lets you earn yield/stake SOL that isn't actively trading. Small bonus, but understand any lockup or smart-contract risk before parking funds.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 12 TRADER PLAYBOOKS ═══════════════ -->
+    <section id="traders" class="chapter">
+      <div class="chapter-tag">12 · The Pros</div>
+      <h2>Trader playbooks: what the famous wallets actually do</h2>
+      <p class="big-p">You'll hear names like <strong>Cented</strong>, <strong>Cupsey</strong>, and <strong>Orangie</strong> thrown around as legends. Their on-chain wallets are public, so we can see roughly how they trade. Below are their <em>reported</em> stats and the real lessons — followed by the most important caveat on this whole page.</p>
+
+      <div class="trader-grid">
+        <div class="trader-card">
+          <div class="trader-head">
+            <span class="trader-avatar">C</span>
+            <div><h3>Cented</h3><span class="trader-handle">"the 7-second trader"</span></div>
+          </div>
+          <div class="trader-stats">
+            <div><b>~$10M</b><span>reported realized profit</span></div>
+            <div><b>62.3%</b><span>win rate</span></div>
+            <div><b>~7s</b><span>median hold time</span></div>
+            <div><b>845/day</b><span>trades</span></div>
+          </div>
+          <p class="trader-style"><b>Style:</b> Ultra-high-frequency sniping across multiple wallets. Buys obscure tokens at a few-thousand-dollar market cap and exits within seconds as price climbs toward ~$100K. Biggest single win was ~$90K on $GORK; most profit came from tiny no-name coins.</p>
+          <p class="trader-lesson"><b>Lesson for you:</b> his edge is <em>speed and infrastructure you don't have</em>. This is a job done by bots and bundles, not a strategy you copy by hand.</p>
+        </div>
+
+        <div class="trader-card">
+          <div class="trader-head">
+            <span class="trader-avatar">C</span>
+            <div><h3>Cupsey</h3><span class="trader-handle">snipe-and-flip machine</span></div>
+          </div>
+          <div class="trader-stats">
+            <div><b>~$5.1M</b><span>reported profit (3mo)</span></div>
+            <div><b>67.7%</b><span>win rate</span></div>
+            <div><b>&lt;1 min</b><span>typical hold</span></div>
+            <div><b>1 loss</b><span>of $400 in 7 months</span></div>
+          </div>
+          <p class="trader-style"><b>Style:</b> Thousands of trades, buying ~3 SOL into tokens at launch and selling within seconds-to-minutes for small, consistent profits. Volume + a tiny repeatable edge, executed with brutal discipline.</p>
+          <p class="trader-lesson"><b>Lesson for you:</b> the money isn't in one moonshot — it's in <em>relentless consistency and cutting losers instantly</em>. The discipline is the skill, not the picks.</p>
+        </div>
+
+        <div class="trader-card">
+          <div class="trader-head">
+            <span class="trader-avatar">O</span>
+            <div><h3>Orangie</h3><span class="trader-handle">filter &amp; conviction trader</span></div>
+          </div>
+          <div class="trader-stats">
+            <div><b>Filters</b><span>strict entry criteria</span></div>
+            <div><b>Stages</b><span>scales out of wins</span></div>
+            <div><b>Early</b><span>before Twitter hype</span></div>
+            <div><b>Guide</b><span>published strategy</span></div>
+          </div>
+          <p class="trader-style"><b>Style:</b> More selective than the snipers. Known for a documented checklist: only coins with locked liquidity, no whale owning ~40%+, enter <em>before</em> the hype wave, then sell in stages on the way up rather than trying to nail the top.</p>
+          <p class="trader-lesson"><b>Lesson for you:</b> a written, repeatable filter beats vibes. And <em>"sell in stages"</em> is the most copyable habit any pro has — take some off at 2×, more at 5×, ride a moonbag.</p>
+        </div>
+
+        <div class="trader-card">
+          <div class="trader-head">
+            <span class="trader-avatar">+</span>
+            <div><h3>The leaderboard</h3><span class="trader-handle">Mr Frog · Euris · Waddles · Gake…</span></div>
+          </div>
+          <div class="trader-stats">
+            <div><b>Public</b><span>on-chain wallets</span></div>
+            <div><b>Trackable</b><span>via Axiom Vision</span></div>
+            <div><b>Varied</b><span>styles &amp; sizes</span></div>
+            <div><b>Watched</b><span>by thousands</span></div>
+          </div>
+          <p class="trader-style"><b>Style:</b> A rotating cast of top wallets ranked by PnL and win rate on tools like Axiom's <em>Vision</em> leaderboard. Some snipe, some swing, some farm migrations. Their trades are visible in near-real-time.</p>
+          <p class="trader-lesson"><b>Lesson for you:</b> watching smart-money wallets is genuinely useful for <em>ideas</em> — but you always see their move <em>after</em> they've made it, and they know they're being watched.</p>
+        </div>
+      </div>
+
+      <!-- The big caveat -->
+      <div class="reality-box">
+        <span class="reality-label">The most important thing on this page</span>
+        <h3>Why you can't just copy them</h3>
+        <p>When researchers simulated copying Cented's trades with just a <strong>10-second delay</strong> — faster than any human could react — the follower's return was <strong class="bad-text">-21.3%</strong>. Read that again. Mirroring a profitable pro, slightly late, <em>lost money</em>.</p>
+        <ul class="check-list">
+          <li><strong>Speed is the edge.</strong> By the time a snipe appears on a leaderboard, the easy profit is already extracted. You're buying their exit.</li>
+          <li><strong>Survivorship bias.</strong> You see the 5 winners with $10M. You never see the 50,000 wallets that did the exact same thing and went to zero. Their absence isn't proof the strategy works — it's the graveyard you're not shown.</li>
+          <li><strong>Different game.</strong> Pros run bots, multiple wallets, bundles, and colocated infrastructure. Hand-trading their style is bringing a knife to a drone fight.</li>
+          <li><strong>Even the community is split.</strong> Many call high-frequency snipers "the cancer of memecoins" for extracting value from newcomers rather than building anything. You'd be the newcomer.</li>
+        </ul>
+        <p class="reality-foot">Use the pros for <em>principles</em> (discipline, staged exits, strict filters, cut losers fast) — never as trades to blindly mirror. The transferable part is the <strong>mindset</strong>, not the clicks.</p>
+      </div>
+
+      <h3 class="sub">The transferable wisdom (steal these, not the trades)</h3>
+      <div class="cards-3">
+        <div class="card"><h3>Sell in stages</h3><p>Every disciplined pro scales out: recover your initial early, take profit in chunks, let a small "moonbag" ride. Nobody consistently sells the exact top.</p></div>
+        <div class="card"><h3>Cut losers instantly</h3><p>The wallets that survive don't "average down" on dying coins. A small loss taken fast beats a bag held to zero. Ego is the most expensive position.</p></div>
+        <div class="card"><h3>Have a written filter</h3><p>Locked liquidity, sane holder distribution, rising volume, real community. If a coin fails your checklist, you skip it — no exceptions, no FOMO.</p></div>
+      </div>
+
+      <div class="warn-box small">
+        <strong>Disclaimer:</strong> Profit figures above are self-reported or estimated from public on-chain data by third parties — treat them as unverified and likely cherry-picked. Naming these traders is <em>not</em> an endorsement, and nothing here is a suggestion to copy anyone. Most people who try to trade like this lose money.
+      </div>
+    </section>
+
+    <!-- ═══════════════ 13 SCAMS ═══════════════ -->
+    <section id="scams" class="chapter">
+      <div class="chapter-tag">13 · Defense</div>
+      <h2>Scams &amp; how not to get rekt</h2>
+      <p class="big-p">The fastest way to lose everything isn't a bad trade — it's a scam or a security mistake. Internalize these.</p>
+
+      <div class="scam-grid">
+        <div class="scam"><span class="scam-tag bad">RUG</span><h3>Rug pull</h3><p>Dev removes the liquidity (or dumps their bag) and the price goes to zero instantly. Defense: liquidity locked/burned, low dev holdings, revoked mint.</p></div>
+        <div class="scam"><span class="scam-tag bad">TRAP</span><h3>Honeypot</h3><p>You can buy but the contract blocks selling. Your bag is trapped at "all-time high" forever. Defense: tiny test trade — confirm you can sell.</p></div>
+        <div class="scam"><span class="scam-tag bad">FAKE</span><h3>Phishing sites</h3><p>Clone of axiom.trade that steals your seed phrase or drains your wallet on connect. Defense: bookmark the real URL; never type your seed into a website.</p></div>
+        <div class="scam"><span class="scam-tag bad">PUMP</span><h3>Pump &amp; dump groups</h3><p>"Alpha" callers buy first, tell you to buy (you're the exit), then dump on you. Defense: if someone's screaming at you to buy, you're probably the liquidity.</p></div>
+        <div class="scam"><span class="scam-tag bad">DRAIN</span><h3>Malicious approvals</h3><p>Signing a sketchy transaction can grant a contract permission to drain your tokens. Defense: read what you sign; revoke old approvals; use a burner.</p></div>
+        <div class="scam"><span class="scam-tag bad">IMP</span><h3>Impersonation</h3><p>Fake "support", fake devs in DMs, fake giveaways. Real support never DMs you first or asks for your seed. Defense: assume every unsolicited DM is a scam.</p></div>
+      </div>
+
+      <div class="armor">
+        <h3>Your security baseline (non-negotiable)</h3>
+        <ul class="check-list two-col">
+          <li>Use a dedicated <term data-term="burner">burner wallet</term> for memecoins — never your main holdings.</li>
+          <li>Write your seed phrase on paper, offline. Never digital, never shared.</li>
+          <li>Bookmark the real <code>axiom.trade</code>; ignore ads &amp; DM links.</li>
+          <li>Tiny test deposit + tiny test trade before any real size.</li>
+          <li>Enable MEV protection; sanity-check slippage every time.</li>
+          <li>Periodically revoke old token approvals.</li>
+          <li>If a deal feels urgent or too good — that's the scam working.</li>
+          <li>Never invest borrowed money or rent. Only true risk capital.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════ 12 GLOSSARY ═══════════════ -->
+    <section id="glossary" class="chapter">
+      <div class="chapter-tag">14 · Reference</div>
+      <h2>Glossary</h2>
+      <p class="big-p">Every term in this guide, in plain English. Search to filter. (Underlined words elsewhere on the page link here.)</p>
+      <div class="glossary-search">
+        <input id="glossary-filter" type="text" placeholder="Search terms… e.g. slippage, bundle, rug" aria-label="Search glossary" autocomplete="off" />
+      </div>
+      <dl class="glossary" id="glossary-list">
+        <!-- populated by JS -->
+      </dl>
+      <p class="glossary-empty" id="glossary-empty" hidden>No terms match that search.</p>
+    </section>
+
+    <!-- ═══════════════ 13 QUIZ ═══════════════ -->
+    <section id="quiz" class="chapter">
+      <div class="chapter-tag">15 · Check Yourself</div>
+      <h2>Test yourself</h2>
+      <p class="big-p">Ten questions covering the whole guide. No login, no score saved — just instant feedback so you know what stuck.</p>
+      <div class="quiz" id="quiz">
+        <!-- populated by JS -->
+      </div>
+      <div class="quiz-result" id="quiz-result" hidden>
+        <h3 id="quiz-score">—</h3>
+        <p id="quiz-msg"></p>
+        <button class="btn btn-ghost" id="quiz-reset">Retake</button>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="site-foot">
+      <div class="foot-warn">
+        <strong>Final reminder:</strong> Memecoin trading carries an extreme risk of total loss. This site is educational and is <em>not</em> financial, investment, legal, or tax advice. Nothing here is an endorsement of any platform, token, or strategy. Do your own research and never risk money you can't afford to lose.
+      </div>
+      <div class="foot-links">
+        <span><span class="brand-mark">▲</span> Memecoin<span class="accent">Academy</span></span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+      <p class="foot-sources">Built from public documentation &amp; reporting on Axiom Trade, pump.fun, and Solana. Mechanics and fees change — always verify current details in-app.</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- term tooltip element -->
+<div id="term-pop" class="term-pop" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
