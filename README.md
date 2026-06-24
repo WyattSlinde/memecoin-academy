@@ -2,7 +2,7 @@
 
 A free, plain-English course on **memecoins, Solana, and the Axiom Trade terminal** — from absolute zero to advanced. Static site, no build step, works offline.
 
-**Live site:** _(GitHub Pages link below once enabled)_
+**Live site:** https://wyattslinde.github.io/memecoin-academy/
 
 ## What's inside
 - 16 chapters: foundations → bonding curves → reading the Pulse feed → trading → risk → advanced (MEV, bundles, perps) → trader playbooks → scams
