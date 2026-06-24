@@ -294,6 +294,50 @@
     updateSize();
   }
 
+  /* ---------- Ticker tape (illustrative) ---------- */
+  const tickerTrack = $("#ticker-track");
+  if (tickerTrack) {
+    const feed = [
+      ["DOGE", 12.4], ["PEPE", -8.1], ["WIF", 23.7], ["BONK", -3.2], ["POPCAT", 41.0],
+      ["GIGA", -15.6], ["MOODENG", 9.8], ["GORK", 88.2], ["CHILLGUY", -22.4], ["PNUT", 5.1],
+      ["FWOG", -11.0], ["MICHI", 17.3], ["RETARDIO", -6.7], ["GOAT", 34.5], ["MEW", -4.9]
+    ];
+    const chip = ([s, p]) =>
+      `<span class="tk"><span class="sym">$${s}</span><span class="${p >= 0 ? "up" : "down"}">${p >= 0 ? "▲" : "▼"} ${Math.abs(p).toFixed(1)}%</span></span>`;
+    // duplicate the list so the -50% translate loops seamlessly
+    tickerTrack.innerHTML = feed.map(chip).join("") + feed.map(chip).join("");
+  }
+
+  /* ---------- Upgrade Pulse cards into Axiom-style rows ---------- */
+  (function pulseCards() {
+    const grads = [
+      "linear-gradient(135deg,#4C82FB,#2DD4BF)",
+      "linear-gradient(135deg,#F7931A,#FBBF24)",
+      "linear-gradient(135deg,#EA3943,#FB7185)",
+      "linear-gradient(135deg,#16C784,#5EEAD4)",
+      "linear-gradient(135deg,#8B5CF6,#4C82FB)",
+      "linear-gradient(135deg,#F472B6,#A78BFA)",
+      "linear-gradient(135deg,#22D3EE,#4C82FB)"
+    ];
+    const buyAmts = ["0.5", "1", "2", "0.5", "1", "0.25"];
+    $$(".pulse-card").forEach((card, i) => {
+      const top = $(".pcard-top", card);
+      if (!top) return;
+      const ticker = ($(".tkn", top)?.textContent || "?").trim();
+      const age = ($(".age", top)?.textContent || "").trim();
+      const letter = (ticker.match(/[A-Za-z0-9]/) || ["?"])[0].toUpperCase();
+      let hash = 0; for (const c of ticker) hash = (hash * 31 + c.charCodeAt(0)) >>> 0;
+      const grad = grads[hash % grads.length];
+      const main = document.createElement("div");
+      main.className = "pcard-main";
+      main.innerHTML =
+        `<span class="pcard-av" style="background:${grad}">${letter}</span>` +
+        `<div class="pcard-id"><span class="tkn">${ticker}</span><span class="age">${age}</span></div>` +
+        `<button class="pcard-buy" tabindex="-1" aria-hidden="true"><span class="bolt">⚡</span>${buyAmts[i % buyAmts.length]}</button>`;
+      card.insertBefore(main, top);
+    });
+  })();
+
   /* ---------- Pulse mock tooltips ---------- */
   const pulseTip = $("#pulse-tip");
   if (pulseTip) {

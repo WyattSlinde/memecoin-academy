@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Memecoin Academy — Learn Memecoins & Axiom Trade from Zero</title>
 <meta name="description" content="A free, plain-English course on memecoins, Solana, pump.fun bonding curves, and how to use the Axiom Trade terminal — with interactive simulators, a rug-check, and a glossary." />
+<meta name="theme-color" content="#0A0B0F" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<!-- Social / share preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Memecoin Academy — Learn Memecoins & Axiom Trade from Zero" />
+<meta property="og:description" content="From 'what even is a coin' to bonding curves, sniping, slippage, MEV, and reading a trading terminal — with interactive simulators. Educational, not financial advice." />
+<meta property="og:image" content="https://wyattslinde.github.io/memecoin-academy/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://wyattslinde.github.io/memecoin-academy/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Memecoin Academy — Learn Memecoins & Axiom Trade" />
+<meta name="twitter:description" content="A free interactive course on memecoins, Solana & the Axiom Trade terminal. Educational, not financial advice." />
+<meta name="twitter:image" content="https://wyattslinde.github.io/memecoin-academy/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -65,6 +79,28 @@
   <div class="backdrop" id="backdrop" hidden></div>
 
   <main class="content">
+
+    <!-- ░░ Top terminal bar (chrome) ░░ -->
+    <div class="terminal-bar">
+      <nav class="tb-tabs" aria-label="Quick sections">
+        <a class="tb-tab active" href="#top">Learn</a>
+        <a class="tb-tab" href="#pulse">Pulse</a>
+        <a class="tb-tab" href="#trade">Trade</a>
+        <a class="tb-tab" href="#risk">Risk</a>
+        <a class="tb-tab" href="#traders">Traders</a>
+        <a class="tb-tab" href="#glossary">Glossary</a>
+      </nav>
+      <div class="tb-right">
+        <span class="tb-pill demo">DEMO · EDU</span>
+        <span class="tb-pill bal" aria-hidden="true">◎ <b>0.00</b> SOL</span>
+      </div>
+    </div>
+
+    <!-- ░░ Ticker tape (illustrative) ░░ -->
+    <div class="ticker" aria-hidden="true">
+      <span class="ticker-label">SIM</span>
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
 
     <!-- ═══════════════ HERO ═══════════════ -->
     <section class="hero" id="top">
@@ -734,7 +770,7 @@
       </div>
       <div class="foot-links">
         <span><span class="brand-mark">▲</span> Memecoin<span class="accent">Academy</span></span>
-        <a href="#top">Back to top ↑</a>
+        <span><a class="foot-cta" href="cheatsheet.html" target="_blank" rel="noopener">🖨 Printable cheat sheet</a><a href="#top">Back to top ↑</a></span>
       </div>
       <p class="foot-sources">Built from public documentation &amp; reporting on Axiom Trade, pump.fun, and Solana. Mechanics and fees change — always verify current details in-app.</p>
     </footer>

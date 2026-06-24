@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0C0E14"/>
+      <stop offset="1" stop-color="#070809"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4C82FB"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7BA6FF"/>
+      <stop offset="1" stop-color="#5EEAD4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- grid -->
+  <g stroke="#1B1F27" stroke-width="1" opacity="0.5">
+    <path d="M0 90 H1200 M0 180 H1200 M0 270 H1200 M0 360 H1200 M0 450 H1200 M0 540 H1200"/>
+    <path d="M150 0 V630 M300 0 V630 M450 0 V630 M600 0 V630 M750 0 V630 M900 0 V630 M1050 0 V630"/>
+  </g>
+  <ellipse cx="250" cy="180" rx="380" ry="240" fill="#4C82FB" opacity="0.13"/>
+  <ellipse cx="980" cy="470" rx="360" ry="220" fill="#2DD4BF" opacity="0.10"/>
+
+  <!-- brand -->
+  <g transform="translate(80,72)">
+    <rect width="58" height="58" rx="14" fill="#101319" stroke="#23272F"/>
+    <path d="M29 12 L46 44 H12 Z" fill="url(#blue)"/>
+    <path d="M29 23 L38 41 H20 Z" fill="#101319"/>
+    <text x="76" y="26" fill="#EAEEF5" font-size="22" font-weight="700">Memecoin<tspan fill="#7BA6FF">Academy</tspan></text>
+    <text x="76" y="50" fill="#6E7787" font-size="15" font-family="JetBrains Mono, monospace" letter-spacing="3">FROM ZERO TO TERMINAL</text>
+  </g>
+
+  <!-- headline -->
+  <text x="80" y="248" fill="#EAEEF5" font-size="53" font-weight="800" letter-spacing="-1.5">Understand <tspan fill="url(#green)">memecoins</tspan></text>
+  <text x="80" y="316" fill="#EAEEF5" font-size="53" font-weight="800" letter-spacing="-1.5">&amp; <tspan fill="url(#green)">Axiom Trade</tspan> — from zero.</text>
+
+  <text x="80" y="378" fill="#A9B2C1" font-size="23" font-weight="400">Bonding curves · sniping · slippage · MEV · risk · trader playbooks</text>
+
+  <!-- feature pills -->
+  <g font-size="19" font-weight="600" font-family="JetBrains Mono, monospace">
+    <g transform="translate(80,440)">
+      <rect width="240" height="46" rx="9" fill="#14161C" stroke="#23272F"/>
+      <text x="20" y="30" fill="#7BA6FF">◆ Live simulators</text>
+    </g>
+    <g transform="translate(340,440)">
+      <rect width="210" height="46" rx="9" fill="#14161C" stroke="#23272F"/>
+      <text x="20" y="30" fill="#5EEAD4">◆ Rug-check</text>
+    </g>
+    <g transform="translate(570,440)">
+      <rect width="250" height="46" rx="9" fill="#14161C" stroke="#23272F"/>
+      <text x="20" y="30" fill="#16C784">◆ 15-question quiz</text>
+    </g>
+  </g>
+
+  <!-- mock token cards (Axiom vibe) -->
+  <g transform="translate(902,150)">
+    <rect width="280" height="330" rx="14" fill="#0E1014" stroke="#23272F"/>
+    <text x="20" y="36" fill="#EAEEF5" font-size="17" font-weight="700">Pulse</text>
+    <text x="20" y="56" fill="#6E7787" font-size="12" font-family="JetBrains Mono, monospace">NEW · FINAL STRETCH · MIGRATED</text>
+
+    <g transform="translate(16,76)">
+      <rect width="248" height="72" rx="10" fill="#14161C" stroke="#262A33"/>
+      <circle cx="34" cy="36" r="17" fill="#4C82FB"/>
+      <text x="34" y="42" fill="#fff" font-size="16" font-weight="800" text-anchor="middle">P</text>
+      <text x="62" y="32" fill="#EAEEF5" font-size="15" font-weight="700">PEPE2.0</text>
+      <text x="62" y="52" fill="#6E7787" font-size="12" font-family="JetBrains Mono, monospace">MC $8.4K · 14 holders</text>
+      <rect x="180" y="22" width="52" height="28" rx="7" fill="#16C7841f" stroke="#16C78455"/>
+      <text x="206" y="41" fill="#16C784" font-size="13" font-weight="700" text-anchor="middle">⚡0.5</text>
+    </g>
+    <g transform="translate(16,160)">
+      <rect width="248" height="72" rx="10" fill="#14161C" stroke="#262A33"/>
+      <circle cx="34" cy="36" r="17" fill="#F7931A"/>
+      <text x="34" y="42" fill="#fff" font-size="16" font-weight="800" text-anchor="middle">G</text>
+      <text x="62" y="32" fill="#EAEEF5" font-size="15" font-weight="700">GIGABRAIN</text>
+      <text x="62" y="52" fill="#16C784" font-size="12" font-family="JetBrains Mono, monospace">88% to graduation</text>
+      <rect x="180" y="22" width="52" height="28" rx="7" fill="#16C7841f" stroke="#16C78455"/>
+      <text x="206" y="41" fill="#16C784" font-size="13" font-weight="700" text-anchor="middle">⚡1.0</text>
+    </g>
+    <g transform="translate(16,244)">
+      <rect width="248" height="70" rx="10" fill="#14161C" stroke="#262A33"/>
+      <circle cx="34" cy="35" r="17" fill="#EA3943"/>
+      <text x="34" y="41" fill="#fff" font-size="16" font-weight="800" text-anchor="middle">C</text>
+      <text x="62" y="31" fill="#EAEEF5" font-size="15" font-weight="700">CHADINU</text>
+      <text x="62" y="51" fill="#EA3943" font-size="12" font-family="JetBrains Mono, monospace">Vol -70% ▼</text>
+      <rect x="180" y="21" width="52" height="28" rx="7" fill="#16C7841f" stroke="#16C78455"/>
+      <text x="206" y="40" fill="#16C784" font-size="13" font-weight="700" text-anchor="middle">⚡2.0</text>
+    </g>
+  </g>
+
+  <!-- footer disclaimer -->
+  <text x="80" y="560" fill="#5A6472" font-size="16">Educational only · Not financial advice · Most traders lose money</text>
+  <text x="80" y="592" fill="#4C82FB" font-size="16" font-weight="600">wyattslinde.github.io/memecoin-academy</text>
+</svg>

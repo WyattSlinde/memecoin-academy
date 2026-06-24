@@ -3,68 +3,70 @@
    Palette: gold (#F59E0B) trust + violet (#8B5CF6) tech
    ============================================================ */
 :root{
-  --bg:#0B0F1A;
-  --bg-2:#0F172A;
-  --surface:#121A2C;
-  --surface-2:#172138;
-  --muted:#1E293B;
-  --border:#26324A;
-  --border-2:#33415C;
-  --fg:#F8FAFC;
-  --fg-soft:#C7D2E0;
-  --fg-dim:#8595AD;
-  --primary:#F59E0B;
-  --primary-2:#FBBF24;
-  --accent:#8B5CF6;
-  --accent-2:#A78BFA;
-  --green:#22D38A;
-  --red:#F2545B;
-  --on-primary:#0B0F1A;
-  --radius:14px;
-  --radius-sm:9px;
+  /* Axiom-style near-black terminal palette */
+  --bg:#0A0B0F;
+  --bg-2:#0E1014;
+  --surface:#14161C;
+  --surface-2:#191C23;
+  --muted:#1E222B;
+  --border:#23272F;
+  --border-2:#333944;
+  --fg:#EAEEF5;
+  --fg-soft:#A9B2C1;
+  --fg-dim:#6E7787;
+  --primary:#4C82FB;        /* electric blue */
+  --primary-2:#7BA6FF;
+  --accent:#2DD4BF;         /* teal */
+  --accent-2:#5EEAD4;
+  --green:#16C784;          /* buy / up */
+  --red:#EA3943;            /* sell / down */
+  --on-primary:#05070C;
+  --radius:11px;
+  --radius-sm:7px;
   --maxw:880px;
-  --shadow:0 10px 40px -12px rgba(0,0,0,.65);
-  --glow-gold:0 0 0 1px rgba(245,158,11,.25), 0 0 36px -8px rgba(245,158,11,.45);
-  --glow-violet:0 0 0 1px rgba(139,92,246,.3), 0 0 40px -10px rgba(139,92,246,.5);
+  --shadow:0 16px 44px -20px rgba(0,0,0,.85);
+  --glow-gold:0 0 0 1px rgba(76,130,251,.4), 0 10px 30px -14px rgba(76,130,251,.5);
+  --glow-violet:0 0 0 1px rgba(45,212,191,.35), 0 10px 30px -14px rgba(45,212,191,.4);
   --mono:'JetBrains Mono',ui-monospace,monospace;
-  --grid-line:rgba(38,50,74,.18);
-  --lab-bg-1:#0E1626;
-  --lab-bg-2:#0B111E;
-  --scrim:rgba(0,0,0,.55);
+  --grid-line:rgba(40,46,58,.45);
+  --lab-bg-1:#101319;
+  --lab-bg-2:#0C0E13;
+  --scrim:rgba(0,0,0,.62);
   color-scheme:dark;
 }
 
 /* ---------- Light theme ---------- */
 :root[data-theme="light"]{
-  --bg:#F5F7FB;
+  --bg:#F4F6FA;
   --bg-2:#FFFFFF;
   --surface:#FFFFFF;
-  --surface-2:#EEF2F8;
-  --muted:#E6EBF3;
-  --border:#DCE3EC;
-  --border-2:#C3CEDD;
-  --fg:#0E1726;
+  --surface-2:#EDF1F7;
+  --muted:#E5EAF2;
+  --border:#DBE2EC;
+  --border-2:#C2CDDB;
+  --fg:#0C1320;
   --fg-soft:#33415C;
-  --fg-dim:#5B6A82;
-  --primary:#E08A00;
-  --primary-2:#9A5B00;
-  --accent:#7C3AED;
-  --accent-2:#6D28D9;
-  --on-primary:#1A1205;
-  --green:#0F9D62;
-  --red:#D6363E;
-  --shadow:0 10px 40px -16px rgba(15,23,42,.25);
-  --glow-gold:0 0 0 1px rgba(224,138,0,.3), 0 8px 26px -10px rgba(224,138,0,.4);
-  --glow-violet:0 0 0 1px rgba(124,58,237,.3), 0 8px 28px -10px rgba(124,58,237,.35);
-  --grid-line:rgba(100,116,139,.14);
+  --fg-dim:#5A6880;
+  --primary:#2563EB;
+  --primary-2:#1D4FD0;
+  --accent:#0D9488;
+  --accent-2:#0B7C72;
+  --on-primary:#FFFFFF;
+  --green:#0E9F6E;
+  --red:#D63A43;
+  --shadow:0 14px 40px -18px rgba(15,23,42,.28);
+  --glow-gold:0 0 0 1px rgba(37,99,235,.3), 0 8px 26px -12px rgba(37,99,235,.4);
+  --glow-violet:0 0 0 1px rgba(13,148,136,.3), 0 8px 28px -12px rgba(13,148,136,.35);
+  --grid-line:rgba(100,116,139,.13);
   --lab-bg-1:#FFFFFF;
-  --lab-bg-2:#F2F5FA;
+  --lab-bg-2:#F1F5FA;
   --scrim:rgba(15,23,42,.4);
   color-scheme:light;
 }
 :root[data-theme="light"] .glow-card{background:linear-gradient(180deg,#FFFFFF,#F6F8FC)}
-:root[data-theme="light"] .lab-head{background:rgba(224,138,0,.05)}
-:root[data-theme="light"] .reality-box{background:linear-gradient(180deg,#FFF8F1,#FFFFFF)}
+:root[data-theme="light"] .lab-head{background:rgba(37,99,235,.05)}
+:root[data-theme="light"] .reality-box{background:linear-gradient(180deg,#FFF5F5,#FFFFFF)}
+:root[data-theme="light"] .terminal-bar,:root[data-theme="light"] .ticker{background:rgba(255,255,255,.85)}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
@@ -450,4 +452,109 @@ term:hover{color:var(--accent-2)}
 @media (max-width:520px){
   .hero-stats{grid-template-columns:1fr 1fr}
   .lab-head h3{display:block;margin:10px 0 0}
+}
+
+/* ============================================================
+   ░░ AXIOM SKIN — terminal chrome, dense cards, blue/green ░░
+   ============================================================ */
+
+/* sharper geometric brand mark + blue glow */
+.brand-mark{color:var(--primary);filter:drop-shadow(0 0 6px rgba(76,130,251,.7))}
+#scrollbar-progress{background:linear-gradient(90deg,var(--primary),var(--accent));box-shadow:0 0 10px rgba(76,130,251,.7)}
+.hero-glow{background:radial-gradient(circle at 28% 38%,rgba(76,130,251,.22),transparent 60%),radial-gradient(circle at 72% 60%,rgba(45,212,191,.16),transparent 60%)}
+
+/* tighten everything a touch — terminal density */
+.card,.concept,.setting,.adv,.scam,.metric,.trader-card,.pulse-card{border-radius:var(--radius-sm)}
+.card:hover,.trader-card:hover{transform:translateY(-2px)}
+
+/* ---- Top terminal bar ---- */
+.terminal-bar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  height:52px;margin:0 calc(-1*clamp(20px,5vw,64px));
+  padding:0 clamp(20px,5vw,64px);
+  background:rgba(10,11,15,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.tb-tabs{display:flex;gap:2px;align-items:center;min-width:0;overflow-x:auto;scrollbar-width:none}
+.tb-tabs::-webkit-scrollbar{display:none}
+.tb-tab{
+  font-size:.84rem;font-weight:500;color:var(--fg-dim);padding:7px 13px;border-radius:7px;
+  white-space:nowrap;transition:color .15s,background .15s;border:1px solid transparent;
+}
+.tb-tab:hover{color:var(--fg);background:var(--surface);text-decoration:none}
+.tb-tab.active{color:var(--primary-2);background:rgba(76,130,251,.12);border-color:rgba(76,130,251,.3)}
+.tb-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.tb-pill{font-family:var(--mono);font-size:.74rem;padding:5px 10px;border-radius:6px;border:1px solid var(--border-2);color:var(--fg-soft);white-space:nowrap}
+.tb-pill.demo{color:var(--accent-2);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.08);letter-spacing:.08em}
+.tb-pill.bal{color:var(--fg-soft)}
+.tb-pill.bal b{color:var(--green)}
+
+/* ---- Ticker tape ---- */
+.ticker{
+  position:sticky;top:52px;z-index:55;
+  margin:0 calc(-1*clamp(20px,5vw,64px)) 0;
+  padding:0;height:34px;display:flex;align-items:center;overflow:hidden;
+  background:rgba(14,16,20,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.ticker-label{flex-shrink:0;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;font-weight:700;
+  color:var(--on-primary);background:var(--accent);padding:4px 9px;margin-left:clamp(20px,5vw,64px);border-radius:5px;z-index:2}
+.ticker-track{display:flex;gap:26px;white-space:nowrap;padding-left:26px;animation:scrollticker 42s linear infinite}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;overflow-x:auto}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes scrollticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk{font-family:var(--mono);font-size:.78rem;display:inline-flex;gap:7px;align-items:center;color:var(--fg-soft)}
+.tk .sym{color:var(--fg)}
+.tk .up{color:var(--green)}
+.tk .down{color:var(--red)}
+
+/* ---- Hero as terminal dashboard ---- */
+.hero{padding-top:clamp(34px,6vw,64px)}
+.kicker{color:var(--accent-2)}
+.hero-stats{gap:12px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;position:relative}
+.stat-num{font-size:clamp(1.15rem,2.6vw,1.6rem);color:var(--primary-2)}
+.stat-label{margin-top:4px}
+.btn-primary{background:linear-gradient(180deg,#19D08A,#12B074);color:#04140C;box-shadow:0 8px 22px -10px rgba(22,199,132,.6),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn-primary:hover{box-shadow:0 12px 26px -10px rgba(22,199,132,.7),inset 0 1px 0 rgba(255,255,255,.18)}
+
+/* ---- Pulse cards: Axiom token-row look (avatars + quick-buy injected by JS) ---- */
+.pulse-mock{background:var(--bg-2);padding:14px;gap:12px}
+.pulse-col{background:var(--bg);padding:10px}
+.pcard-main{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pcard-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;
+  font-weight:800;font-size:.85rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.pcard-id{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.2}
+.pcard-id .tkn{display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden}
+.pcard-id .tkn em{font-style:normal;font-weight:400;font-size:.72rem;color:var(--fg-dim);text-overflow:ellipsis;overflow:hidden}
+.pcard-buy{display:inline-flex;align-items:center;gap:4px;background:rgba(22,199,132,.12);color:var(--green);
+  border:1px solid rgba(22,199,132,.35);border-radius:6px;padding:5px 9px;font-family:var(--mono);
+  font-size:.74rem;font-weight:600;cursor:pointer;flex-shrink:0;transition:background .15s}
+.pcard-buy:hover{background:rgba(22,199,132,.22)}
+.pcard-buy .bolt{font-size:.8em}
+.pcard-top{display:none} /* old layout replaced by .pcard-main */
+.age{background:transparent;border:1px solid var(--border-2);color:var(--fg-dim)}
+.pcard-bars b{color:var(--fg)}
+.curve-mini span{background:linear-gradient(90deg,var(--primary),var(--accent))}
+
+/* lab badge to blue */
+.lab-badge{background:var(--primary);color:#fff}
+.chapter-tag{color:var(--accent-2)}
+.callout-label{color:var(--primary)}
+
+/* nav active marker blue (already via tokens) — refine */
+.nav-list a.active{border-left-color:var(--primary)}
+.sidebar-foot .dot.live{background:var(--green)}
+
+/* trader avatar uses blue→teal */
+.trader-avatar{background:linear-gradient(135deg,var(--primary),var(--accent))}
+
+/* cheat-sheet link button in footer */
+.foot-cta{display:inline-flex;gap:8px;align-items:center;margin:6px 14px 0 0}
+
+/* hide terminal bar/ticker on small screens (mobile bar handles nav) */
+@media (max-width:860px){
+  .terminal-bar,.ticker{display:none}
 }
